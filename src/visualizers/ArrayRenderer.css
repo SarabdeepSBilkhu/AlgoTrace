@@ -1,0 +1,50 @@
+.array-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2px;
+    height: 100%; 
+    min-height: 400px;
+    width: 100%;
+    
+    /* Transparent because the parent (visualization-area) handles the glass background */
+    background: transparent; 
+    
+    border-radius: 8px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.array-bar {
+  width: 20px;
+  background-color: var(--accent-primary);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  transition: background-color 0.1s ease, height 0.1s ease;
+  
+  /* Add subtle shine */
+  position: relative;
+  overflow: hidden;
+}
+
+.array-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0.1), transparent);
+  pointer-events: none;
+}
+
+.array-bar.highlighted {
+  background-color: var(--warning);
+  box-shadow: 0 0 15px rgba(250, 204, 21, 0.5); /* Boosted glow */
+}
+
+.array-bar.sorted {
+  background-color: var(--success);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}

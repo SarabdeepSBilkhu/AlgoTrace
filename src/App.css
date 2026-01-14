@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+.app-header {
+    margin-bottom: 1rem;
+    padding-top: 0rem;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.app-header h1 {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 0.1em;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.app-toolbar {
+    width: 100%;
+    max-width: 1600px;
+    padding: 0 40px;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+/* Split Layout */
+.app-main-split {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1600px; /* Constrain max width for ultra-wide */
+    gap: 24px; 
+    padding: 0 40px 40px 40px;
+    align-items: stretch;
+    justify-content: center;
+    height: calc(100vh - 160px);
+    box-sizing: border-box;
+}
+
+/* Glassmorphism Cards */
+.visualization-area, .editor-area {
+    flex: 1;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    
+    background: var(--bg-surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.editor-area {
+    /* Code editor specifics */
+    padding: 0; /* Let Monaco fill it */
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+    .app-main-split {
+        flex-direction: column;
+        height: auto;
+        padding: 16px;
+        gap: 24px;
+    }
+    
+    .visualization-area, .editor-area {
+        width: 100%;
+        min-width: 0;
+        /* Use min-height instead of fixed height to allow content to dictate size if needed */
+        height: 500px; /* Force explicit height so flex-1 children know their size */
+        min-height: 500px; 
+        flex: none; /* Disable flex growing/shrinking logic in column mode */
+        padding: 16px;
+        box-sizing: border-box; /* Explicitly ensure this if global fails somehow, but global should catch it */
+    }
+
+    .editor-area {
+        padding: 0;
+        /* Editor needs strict height management to not collapse or explode */
+        height: 500px; 
+    }
+    
+    body {
+        height: auto;
+        overflow-y: auto;
+    }
+    
+    .app-toolbar {
+        padding: 0 16px; /* Reduced padding for mobile */
+    }
+    
+    .app-header h1 {
+        font-size: 2em; /* Smaller title on mobile */
+    }
+}
+
+.algo-title {
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
