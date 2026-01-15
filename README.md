@@ -2,9 +2,6 @@
 
 **AlgoTrace** is a next-generation algorithm visualizer built with **React**, **TypeScript**, and **Framer Motion**. It features a "Time-Travel" debugging engine that allows you to step forward, backward, and scrub through the execution of complex algorithms deterministically.
 
-![AlgoTrace UI](https://via.placeholder.com/800x450?text=AlgoTrace+Screenshot+Placeholder)
-_(Replace with actual screenshot)_
-
 ## ✨ Key Features
 
 - **🕰️ Deterministic Time-Travel**: Record every step of an algorithm's execution (Comparisons, Swaps, node visits) and replay it instantly. Scrub through the timeline with zero latency.
